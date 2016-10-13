@@ -1,0 +1,6 @@
+framework module Pods_GitHub_TrackerUITests {
+  umbrella header "Pods-GitHub TrackerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
