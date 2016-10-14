@@ -21,6 +21,7 @@
 		4B8680914DC2383B0841912C /* Pods_GitHub_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F5DD68A2CE4F9E5B3EEE79 /* Pods_GitHub_Tracker.framework */; };
 		C3AE9D0C59DA11C039B651C3 /* Pods_GitHub_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32F5AA325A46164AD69BFFC /* Pods_GitHub_TrackerUITests.framework */; };
 		DEF15066CB3C5BE92620948B /* Pods_GitHub_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 203CEDB17A4D5C14E03BE19F /* Pods_GitHub_TrackerTests.framework */; };
+		E295E4791DB19ABE00F16C80 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E295E4781DB19ABE00F16C80 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		B32F5AA325A46164AD69BFFC /* Pods_GitHub_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED98E1595E66729DF39FB44 /* Pods-GitHub Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHub Tracker/Pods-GitHub Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		D33D3DA5E1F5E660607A0049 /* Pods-GitHub TrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub TrackerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHub TrackerUITests/Pods-GitHub TrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E295E4781DB19ABE00F16C80 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Extensions.swift"; path = "Extensions/String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			children = (
 				3F0890411DB07CDB00EA0828 /* Models */,
 				3F85BF021DAF35CD000694A9 /* WrapHub.swift */,
+				E295E4781DB19ABE00F16C80 /* String+Extensions.swift */,
 			);
 			name = ApiWrapper;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E295E4791DB19ABE00F16C80 /* String+Extensions.swift in Sources */,
 				3F0890431DB07CF200EA0828 /* GithubUser.swift in Sources */,
 				3F85BF031DAF35CD000694A9 /* WrapHub.swift in Sources */,
 				3F2F18831DAEFCF100CD5E34 /* ViewController.swift in Sources */,
