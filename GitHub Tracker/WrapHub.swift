@@ -10,14 +10,26 @@ import Alamofire
 import SwiftyJSON
 
 class WrapHub {
-    static let baseUrl: String = "https://api.github.com"
-    static let url = baseUrl + "/users/luhagel"
-    static func apiCall() {
-        Alamofire.request(WrapHub.url).validate().responseJSON { response in
+    private static let baseUrl: String = "https://api.github.com"
+    
+    
+    //Get User Info
+    static func getUser(userName: String, completion: @escaping (Any) -> Void) {
+        let url = baseUrl + "/users/" + userName
+        self.apiCall(url: url, callback: { (res: JSON?) in
+            if let userData = res {
+                completion(userData)
+            }
+        })
+    }
+    
+    
+    //Generic API Call - call from other functions
+    private static func apiCall(url: String, callback: @escaping (JSON?) -> ()) {
+        Alamofire.request(url).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
+                callback(JSON(value))
             case .failure(let error):
                 print(error)
             }

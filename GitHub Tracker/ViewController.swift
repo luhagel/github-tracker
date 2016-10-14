@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        WrapHub.apiCall()
+        WrapHub.getUser(userName: "wilsonilo", completion: { res in
+            print(res)
+        })
     }
 
     override func didReceiveMemoryWarning() {
