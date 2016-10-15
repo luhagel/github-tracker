@@ -23,6 +23,7 @@ class WrapHub {
         })
     }
     
+    //Get an array of all repositories of a given user
     static func getAllPublicRepositories(for user: GithubUser) -> [Repository] {
         var repositoryArray: [Repository] = []
         
@@ -31,12 +32,8 @@ class WrapHub {
                 repositoryArray += [self.parseJSONToRepository(repoJSON: repoJSON!)]
             })
         }
-        
         return repositoryArray
     }
-    
-    
-    
     
     //Generic API Call - call from other functions
     private static func apiCall(url: String, callback: @escaping (JSON?) -> ()) {
@@ -89,6 +86,7 @@ class WrapHub {
         self.getUser(userName: repoJSON["owner"]["login"].stringValue, completion: { user in
             repoOwner = user
         })
+        
         let repository: Repository = Repository(id: repoJSON["id"].intValue,
                                                 name: repoJSON["name"].stringValue,
                                                 full_name: repoJSON["full_name"].stringValue,

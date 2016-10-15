@@ -16,5 +16,4 @@ extension String {
         let range = startIndex...endIndex
         removeSubrange(range)
     }
-    
 }
