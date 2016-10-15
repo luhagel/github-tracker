@@ -14,8 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        print(truncateString(last: 4, string: "Whatever"))
+        
         WrapHub.getUser(userName: "wilsonilo", completion: { res in
-            print(res)
+            WrapHub.getAllPublicRepoURLs(user: res)
         })
     }
 
@@ -23,7 +26,5 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 

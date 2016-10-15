@@ -1,0 +1,151 @@
+//
+//  Repository.swift
+//  GitHub Tracker
+//
+//  Created by Luca Hagel on 10/14/16.
+//  Copyright © 2016 Luca Hagel. All rights reserved.
+//
+
+import Foundation
+
+class Repository {
+    let id: Int
+    let name: String
+    let full_name: String
+    let owner: GithubUser
+    let isPrivate: Bool
+    let htmlURL: String
+    let description: String?
+    let fork: Bool
+    let URL: String
+    let forksURL: String
+    let keysURL: String
+    let collaboratorsURL: String
+    let teamsURL: String
+    let hooksURL: String
+    let issueEventsURL: String
+    let eventsURL: String
+    let assigneesURL: String
+    let branchesURL: String
+    let tagsURL: String
+    let blobsURL: String
+    let gitTagsURL: String
+    let gitTefsURL: String
+    let treesURL: String
+    let statusesURL: String
+    let languagesURL: String
+    let stargazersURL: String
+    let contributorsURL: String
+    let subscribersURL: String
+    let subscriptionURL: String
+    let commitsURL: String
+    let gitCommitsURL: String
+    let commentsURL: String
+    let issueCommentURL: String
+    let contentsURL: String
+    let compareURL: String
+    let mergesURL: String
+    let archiveURL: String
+    let downloadsURL: String
+    let issuesURL: String
+    let pullsURL: String
+    let milestonesURL: String
+    let notificationsURL: String
+    let labelsURL: String
+    let releasesURL: String
+    let deploymentsURL: String
+    let createdAt: String
+    let updatedAt: String
+    let pushedAt: String
+    let gitURL: String
+    let sshURL: String
+    let cloneURL: String
+    let svnURL: String
+    let homepage: String?
+    let size: Int
+    let stargazersCount: Int
+    let watchersCount: Int
+    let language: String
+    let hasIssues: Bool
+    let hasDownloads: Bool
+    let hasWiki: Bool
+    let hasPages: Bool
+    let forksCount: Int
+    let mirrorURL: String?
+    let openIssuesCount: Int
+    let forks: Int
+    let openIssues: Int
+    let watchers: Int
+    let defaultBranch: String
+    
+    public init(id: Int, name: String, full_name: String, owner: GithubUser, isPrivate: Bool, htmlURL: String, description: String?, fork: Bool, URL: String, forksURL: String, keysURL: String, collaboratorsURL: String, teamsURL: String, hooksURL: String, issueEventsURL: String, eventsURL: String, assigneesURL: String, branchesURL: String, tagsURL: String, blobsURL: String, gitTagsURL: String, gitTefsURL: String, treesURL: String, statusesURL: String, languagesURL: String, stargazersURL: String, contributorsURL: String, subscribersURL: String, subscriptionURL: String, commitsURL: String, gitCommitsURL: String, commentsURL: String, issueCommentURL: String, contentsURL: String, compareURL: String, mergesURL: String, archiveURL: String, downloadsURL: String, issuesURL: String, pullsURL: String, milestonesURL: String, notificationsURL: String, labelsURL: String, releasesURL: String, deploymentsURL: String, createdAt: String, updatedAt: String, pushedAt: String, gitURL: String, sshURL: String, cloneURL: String, svnURL: String, homepage: String?, size: Int, stargazersCount: Int, watchersCount: Int, language: String, hasIssues: Bool, hasDownloads: Bool, hasWiki: Bool, hasPages: Bool, forksCount: Int, mirrorURL: String?, openIssuesCount: Int, forks: Int, openIssues: Int, watchers: Int, defaultBranch: String) {
+        self.id = id
+        self.name = name
+        self.full_name = full_name
+        self.owner = owner
+        self.isPrivate = isPrivate
+        self.htmlURL = htmlURL
+        self.description = description
+        self.fork = fork
+        self.URL = URL
+        self.forksURL = forksURL
+        self.keysURL = keysURL
+        self.collaboratorsURL = collaboratorsURL
+        self.teamsURL = teamsURL
+        self.hooksURL = hooksURL
+        self.issueEventsURL = issueEventsURL
+        self.eventsURL = eventsURL
+        self.assigneesURL = assigneesURL
+        self.branchesURL = branchesURL
+        self.tagsURL = tagsURL
+        self.blobsURL = blobsURL
+        self.gitTagsURL = gitTagsURL
+        self.gitTefsURL = gitTefsURL
+        self.treesURL = treesURL
+        self.statusesURL = statusesURL
+        self.languagesURL = languagesURL
+        self.stargazersURL = stargazersURL
+        self.contributorsURL = contributorsURL
+        self.subscribersURL = subscribersURL
+        self.subscriptionURL = subscriptionURL
+        self.commitsURL = commitsURL
+        self.gitCommitsURL = gitCommitsURL
+        self.commentsURL = commentsURL
+        self.issueCommentURL = issueCommentURL
+        self.contentsURL = contentsURL
+        self.compareURL = compareURL
+        self.mergesURL = mergesURL
+        self.archiveURL = archiveURL
+        self.downloadsURL = downloadsURL
+        self.issuesURL = issuesURL
+        self.pullsURL = pullsURL
+        self.milestonesURL = milestonesURL
+        self.notificationsURL = notificationsURL
+        self.labelsURL = labelsURL
+        self.releasesURL = releasesURL
+        self.deploymentsURL = deploymentsURL
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+        self.pushedAt = pushedAt
+        self.gitURL = gitURL
+        self.sshURL = sshURL
+        self.cloneURL = cloneURL
+        self.svnURL = svnURL
+        self.homepage = homepage
+        self.size = size
+        self.stargazersCount = stargazersCount
+        self.watchersCount = watchersCount
+        self.language = language
+        self.hasIssues = hasIssues
+        self.hasDownloads = hasDownloads
+        self.hasWiki = hasWiki
+        self.hasPages = hasPages
+        self.forksCount = forksCount
+        self.mirrorURL = mirrorURL
+        self.openIssuesCount = openIssuesCount
+        self.forks = forks
+        self.openIssues = openIssues
+        self.watchers = watchers
+        self.defaultBranch = defaultBranch
+    }
+}
