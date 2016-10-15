@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Repository {
+struct Repository {
     let id: Int
     let name: String
     let full_name: String

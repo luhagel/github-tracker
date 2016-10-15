@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GithubUser {
+struct GithubUser {
     var id: Int
     var login: String
     var avatarURL: String?
