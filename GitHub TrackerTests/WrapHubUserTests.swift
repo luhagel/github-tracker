@@ -38,4 +38,10 @@ class WrapHubUserTests: XCTestCase {
             XCTAssert(user.login == "luhagel", "invalid login name")
         })
     }
+    
+    func testGetAllPublicRepositoriesReturnsNonemptyArray() {
+        WrapHub.getUser(userName: "luhagel", completion: { user in
+            XCTAssert(WrapHub.getAllPublicRepositories(for: user).count > 0, "getAllPublicPeositories returned empty Array")
+        })
+    }
 }

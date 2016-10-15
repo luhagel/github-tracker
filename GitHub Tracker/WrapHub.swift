@@ -23,6 +23,18 @@ class WrapHub {
         })
     }
     
+    static func getAllPublicRepositories(for user: GithubUser) -> [Repository] {
+        var repositoryArray: [Repository] = []
+        
+        for repoURL in self.getAllPublicRepoURLs(user: user) {
+            self.apiCall(url: repoURL, callback: { repoJSON in
+                repositoryArray += [self.parseJSONToRepository(repoJSON: repoJSON!)]
+            })
+        }
+        
+        return repositoryArray
+    }
+    
     
     
     
@@ -72,7 +84,7 @@ class WrapHub {
     }
     
     private static func parseJSONToRepository(repoJSON: JSON) -> Repository {
-        let repoOwner: GithubUser
+        var repoOwner: GithubUser?
         
         self.getUser(userName: repoJSON["owner"]["login"].stringValue, completion: { user in
             repoOwner = user
@@ -80,7 +92,7 @@ class WrapHub {
         let repository: Repository = Repository(id: repoJSON["id"].intValue,
                                                 name: repoJSON["name"].stringValue,
                                                 full_name: repoJSON["full_name"].stringValue,
-                                                owner: repoOwner,
+                                                owner: repoOwner!,
                                                 isPrivate: repoJSON["is_private"].boolValue,
                                                 htmlURL: repoJSON["html_url"].stringValue,
                                                 description: repoJSON["description"].stringValue,
@@ -148,17 +160,18 @@ class WrapHub {
         return repository
     }
     
-    static func getAllPublicRepoURLs(user: GithubUser) -> [String] {
+    private static func getAllPublicRepoURLs(user: GithubUser) -> [String] {
         var repoArrary: [String] = []
         
         self.apiCall(url: user.reposURL, callback: { reposJSON in
             if let reposArray = reposJSON?.arrayValue {
                 for repo in reposArray {
-                   // repoArrary += [repo["repos_url"]]
+                    var mutableRepoURL: String = repo["url"].string!
+                    mutableRepoURL.removeLastCharacters(numberOfCharacters: 4)
+                    repoArrary.append(mutableRepoURL)
                 }
             }
         })
-        
         return repoArrary
     }
 }
