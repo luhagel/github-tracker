@@ -11,8 +11,8 @@ import Foundation
 extension String {
     
     mutating func removeLastCharacters(numberOfCharacters: Int) {
-        let startIndex = str.index(str.startIndex, offsetBy: characters.count-numberOfCharacters)
-        let endIndex = str.index(str.startIndex, offsetBy: characters.count-1)
+        let startIndex = self.index(self.startIndex, offsetBy: characters.count-numberOfCharacters)
+        let endIndex = self.index(self.startIndex, offsetBy: characters.count-1)
         let range = startIndex...endIndex
         removeSubrange(range)
     }
