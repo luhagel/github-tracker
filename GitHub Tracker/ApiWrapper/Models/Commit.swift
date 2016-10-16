@@ -54,7 +54,7 @@ struct CommitFile {
     let patch: String
 }
 
-struct compactCommit {
+struct CompactCommit {
     let url: String
     let author: CommitAuthor
     let committer: Committer
@@ -69,7 +69,7 @@ struct Commit {
     let sha: String
     let htmlURL: String
     let commentsURL: String
-    let commit: compactCommit
+    let commit: CompactCommit
     let author: CompactGithubUser
     let committer: CompactGithubUser
     let parents: [CommitParent]

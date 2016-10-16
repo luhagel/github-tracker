@@ -140,4 +140,77 @@ class WrapHubJSONParser {
                                                 defaultBranch: repoJSON["default_branch"].stringValue)
         return repository
     }
+    
+    static func parseJSONToCompactCommit(commitJSON: JSON) -> CompactCommit {
+        let commitAuthor = CommitAuthor(name: commitJSON["author"]["name"].stringValue,
+                                        email: commitJSON["author"]["email"].stringValue,
+                                        date: commitJSON["author"]["date"].stringValue)
+        
+        let committer = Committer(name: commitJSON["committer"]["name"].stringValue,
+                                  email: commitJSON["committer"]["email"].stringValue,
+                                  date: commitJSON["committer"]["date"].stringValue)
+        
+        let tree = CommitTree(url: commitJSON["tree"]["url"].stringValue,
+                              sha: commitJSON["tree"]["sha"].stringValue)
+        
+        let verification = CommitVerification(verified: commitJSON["verification"]["verified"].boolValue,
+                                              reason: commitJSON["verification"]["reason"].stringValue,
+                                              signature: commitJSON["verification"]["signature"].stringValue,
+                                              payload: commitJSON["verification"]["payload"].stringValue)
+        
+        let compactCommit = CompactCommit(url: commitJSON["url"].stringValue,
+                                          author: commitAuthor,
+                                          committer: committer,
+                                          message: commitJSON["message"].stringValue,
+                                          tree: tree,
+                                          commentsCount: commitJSON["comments_count"].intValue,
+                                          verification: verification)
+        return compactCommit
+    }
+    
+    static func parseJSONToCommit(commitJSON: JSON) -> Commit {
+        let commitStats = CommitStats(additions: commitJSON["stats"]["additions"].intValue,
+                                      deletions: commitJSON["stats"]["deletions"].intValue,
+                                      changes: commitJSON["stats"]["changes"].intValue)
+        
+        var commitParents: [CommitParent] = []
+        for parent in commitJSON["parents"].arrayValue {
+            commitParents += [self.parseJSONToCommitParent(parentJSON: parent)]
+        }
+        
+        var commitFiles: [CommitFile] = []
+        for file in commitJSON["files"].arrayValue {
+            commitFiles += [self.parseJSONToCommitFile(fileJSON: file)]
+        }
+        
+        let commit = Commit(url: commitJSON["url"].stringValue,
+                            sha: commitJSON["sha"].stringValue,
+                            htmlURL: commitJSON["html_url"].stringValue,
+                            commentsURL: commitJSON["comments_url"].stringValue,
+                            commit: self.parseJSONToCompactCommit(commitJSON: commitJSON["commit"]),
+                            author: self.parseJSONToCompactGithubUser(userJSON: commitJSON["author"]),
+                            committer: self.parseJSONToCompactGithubUser(userJSON: commitJSON["committer"]),
+                            parents: commitParents,
+                            stats: commitStats,
+                            files: commitFiles)
+        return commit
+    }
+    
+    private static func parseJSONToCommitParent(parentJSON: JSON) -> CommitParent {
+        let commitParent = CommitParent(url: parentJSON["url"].stringValue,
+                                        sha: parentJSON["sha"].stringValue)
+        return commitParent
+    }
+    
+    private static func parseJSONToCommitFile(fileJSON: JSON) -> CommitFile {
+        let commitFile = CommitFile(filename: fileJSON["filename"].stringValue,
+                                    additions: fileJSON["additions"].intValue,
+                                    deletions: fileJSON["deletions"].intValue,
+                                    changes: fileJSON["changes"].intValue,
+                                    status: fileJSON["status"].stringValue,
+                                    rawURL: fileJSON["raw_url"].stringValue,
+                                    blobURL: fileJSON["blob_url"].stringValue,
+                                    patch: fileJSON["patch"].stringValue)
+        return commitFile
+    }
 }
