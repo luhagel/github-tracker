@@ -15,9 +15,4 @@ target 'GitHub Tracker' do
     # Pods for testing
   end
 
-  target 'GitHub TrackerUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
