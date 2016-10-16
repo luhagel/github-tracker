@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Repository {
+struct Repository {
     let id: Int
     let name: String
     let full_name: String
-    let owner: GithubUser
+    let owner: CompactGithubUser
     let isPrivate: Bool
     let htmlURL: String
     let description: String?
@@ -78,7 +78,7 @@ class Repository {
     let watchers: Int
     let defaultBranch: String
     
-    public init(id: Int, name: String, full_name: String, owner: GithubUser, isPrivate: Bool, htmlURL: String, description: String?, fork: Bool, URL: String, forksURL: String, keysURL: String, collaboratorsURL: String, teamsURL: String, hooksURL: String, issueEventsURL: String, eventsURL: String, assigneesURL: String, branchesURL: String, tagsURL: String, blobsURL: String, gitTagsURL: String, gitTefsURL: String, treesURL: String, statusesURL: String, languagesURL: String, stargazersURL: String, contributorsURL: String, subscribersURL: String, subscriptionURL: String, commitsURL: String, gitCommitsURL: String, commentsURL: String, issueCommentURL: String, contentsURL: String, compareURL: String, mergesURL: String, archiveURL: String, downloadsURL: String, issuesURL: String, pullsURL: String, milestonesURL: String, notificationsURL: String, labelsURL: String, releasesURL: String, deploymentsURL: String, createdAt: String, updatedAt: String, pushedAt: String, gitURL: String, sshURL: String, cloneURL: String, svnURL: String, homepage: String?, size: Int, stargazersCount: Int, watchersCount: Int, language: String, hasIssues: Bool, hasDownloads: Bool, hasWiki: Bool, hasPages: Bool, forksCount: Int, mirrorURL: String?, openIssuesCount: Int, forks: Int, openIssues: Int, watchers: Int, defaultBranch: String) {
+    public init(id: Int, name: String, full_name: String, owner: CompactGithubUser, isPrivate: Bool, htmlURL: String, description: String?, fork: Bool, URL: String, forksURL: String, keysURL: String, collaboratorsURL: String, teamsURL: String, hooksURL: String, issueEventsURL: String, eventsURL: String, assigneesURL: String, branchesURL: String, tagsURL: String, blobsURL: String, gitTagsURL: String, gitTefsURL: String, treesURL: String, statusesURL: String, languagesURL: String, stargazersURL: String, contributorsURL: String, subscribersURL: String, subscriptionURL: String, commitsURL: String, gitCommitsURL: String, commentsURL: String, issueCommentURL: String, contentsURL: String, compareURL: String, mergesURL: String, archiveURL: String, downloadsURL: String, issuesURL: String, pullsURL: String, milestonesURL: String, notificationsURL: String, labelsURL: String, releasesURL: String, deploymentsURL: String, createdAt: String, updatedAt: String, pushedAt: String, gitURL: String, sshURL: String, cloneURL: String, svnURL: String, homepage: String?, size: Int, stargazersCount: Int, watchersCount: Int, language: String, hasIssues: Bool, hasDownloads: Bool, hasWiki: Bool, hasPages: Bool, forksCount: Int, mirrorURL: String?, openIssuesCount: Int, forks: Int, openIssues: Int, watchers: Int, defaultBranch: String) {
         self.id = id
         self.name = name
         self.full_name = full_name
