@@ -14,11 +14,20 @@ class WrapHub {
     
     
     //Get User Info
-    static func getUser(userName: String, completion: @escaping (GithubUser) -> Void) {
+    static func getGithubUser(userName: String, completion: @escaping (GithubUser) -> Void) {
         let url = baseUrl + "/users/" + userName
         self.apiCall(url: url, callback: { (res: JSON?) in
             if let userData = res {
                 completion(parseJSONToGithubUser(userJSON: userData))
+            }
+        })
+    }
+    
+    static func getCompactGithubUser(userName: String, completion: @escaping (CompactGithubUser) -> Void) {
+        let url = baseUrl + "/users/" + userName
+        self.apiCall(url: url, callback: { (res: JSON?) in
+            if let userData = res {
+                completion(parseJSONToCompactGithubUser(userJSON: userData))
             }
         })
     }
@@ -80,10 +89,30 @@ class WrapHub {
         return user
     }
     
+    private static func parseJSONToCompactGithubUser(userJSON: JSON) -> CompactGithubUser {
+        let user: CompactGithubUser = CompactGithubUser(id: userJSON["id"].intValue,
+                                          login: userJSON["login"].stringValue,
+                                          avatarURL: userJSON["avatar_url"].stringValue,
+                                          gravatarId: userJSON["gravatar_id"].stringValue,
+                                          apiURL: userJSON["url"].stringValue,
+                                          profileURL: userJSON["profile_url"].stringValue,
+                                          followersURL: userJSON["followers_url"].stringValue,
+                                          followingURL: userJSON["following_url"].stringValue,
+                                          gistsURL: userJSON["gists_url"].stringValue,
+                                          starredURL: userJSON["starred_url"].stringValue,
+                                          subscriptionsURL: userJSON["subscriptions_url"].stringValue,
+                                          reposURL: userJSON["repos_url"].stringValue,
+                                          eventsURL: userJSON["events_url"].stringValue,
+                                          receivedEventsURL: userJSON["received_events_url"].stringValue,
+                                          type: userJSON["type"].stringValue,
+                                          siteAdmin: userJSON["site_admin"].boolValue)
+        return user
+    }
+    
     private static func parseJSONToRepository(repoJSON: JSON) -> Repository {
-        var repoOwner: GithubUser?
+        var repoOwner: CompactGithubUser?
         
-        self.getUser(userName: repoJSON["owner"]["login"].stringValue, completion: { user in
+        self.getCompactGithubUser(userName: repoJSON["owner"]["login"].stringValue, completion: { user in
             repoOwner = user
         })
         
@@ -157,6 +186,12 @@ class WrapHub {
                                                 defaultBranch: repoJSON["default_branch"].stringValue)
         return repository
     }
+    
+//    private static func parseJSONToCommit(commitJSON: JSON) -> Commit{
+//        let commit = ""
+//        
+//        return commit
+//    }
     
     private static func getAllPublicRepoURLs(user: GithubUser) -> [String] {
         var repoArrary: [String] = []

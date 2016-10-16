@@ -71,3 +71,41 @@ struct GithubUser {
         self.updatedAt = updatedAt
     }
 }
+
+struct CompactGithubUser {
+    var id: Int
+    var login: String
+    var avatarURL: String?
+    var gravatarId: String?
+    var apiURL: String
+    var profileURL: String
+    var followersURL: String
+    var followingURL: String
+    var gistsURL: String?
+    var starredURL: String?
+    var subscriptionsURL: String
+    var reposURL: String
+    var eventsURL: String
+    var receivedEventsURL: String
+    var type: String
+    var siteAdmin: Bool
+    
+    public init(id: Int, login: String, avatarURL: String?, gravatarId: String?, apiURL: String, profileURL: String, followersURL: String, followingURL: String, gistsURL: String?, starredURL: String?, subscriptionsURL: String, reposURL: String, eventsURL: String, receivedEventsURL: String, type: String, siteAdmin: Bool) {
+        self.id = id
+        self.login = login
+        self.avatarURL = avatarURL
+        self.gravatarId = gravatarId
+        self.apiURL = apiURL
+        self.profileURL = profileURL
+        self.followersURL = followersURL
+        self.followingURL = followingURL
+        self.gistsURL = gistsURL
+        self.starredURL = starredURL
+        self.subscriptionsURL = subscriptionsURL
+        self.reposURL = reposURL
+        self.eventsURL = eventsURL
+        self.receivedEventsURL = receivedEventsURL
+        self.type = type
+        self.siteAdmin = siteAdmin
+    }
+}
