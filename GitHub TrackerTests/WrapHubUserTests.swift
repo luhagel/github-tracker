@@ -27,20 +27,20 @@ class WrapHubUserTests: XCTestCase {
     }
     
     func testGetUserReturnsUser() {
-        WrapHub.getUser(userName: "luhagel", completion: { user in
+        WrapHub.getGithubUser(userName: "luhagel", completion: { user in
             XCTAssert(user.login != "luhagel", "getUser returned nil")
         })
     }
     
     func testParseJSONToGithubUserReturnsUserType() {
-        WrapHub.getUser(userName: "luhagel", completion: { user in
+        WrapHub.getGithubUser(userName: "luhagel", completion: { user in
             XCTAssert(user.name == "Luca Hagel", "invalid name")
             XCTAssert(user.login == "luhagel", "invalid login name")
         })
     }
     
     func testGetAllPublicRepositoriesReturnsNonemptyArray() {
-        WrapHub.getUser(userName: "luhagel", completion: { user in
+        WrapHub.getGithubUser(userName: "luhagel", completion: { user in
             XCTAssert(WrapHub.getAllPublicRepositories(for: user).count > 0, "getAllPublicPeositories returned empty Array")
         })
     }

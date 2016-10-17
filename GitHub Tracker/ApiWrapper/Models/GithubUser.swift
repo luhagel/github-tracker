@@ -20,6 +20,7 @@ struct GithubUser {
     var gistsURL: String?
     var starredURL: String?
     var subscriptionsURL: String
+    var organizationsURL: String
     var reposURL: String
     var eventsURL: String
     var receivedEventsURL: String
@@ -39,7 +40,7 @@ struct GithubUser {
     var createdAt: String
     var updatedAt: String
     
-    public init(id: Int, login: String, avatarURL: String?, gravatarId: String?, apiURL: String, profileURL: String, followersURL: String, followingURL: String, gistsURL: String?, starredURL: String?, subscriptionsURL: String, reposURL: String, eventsURL: String, receivedEventsURL: String, type: String, siteAdmin: Bool, name: String?, company: String?, blog: String?, location: String?, email: String?, hireable: Bool, bio: String?, publicRepos: Int, publicGists: Int, followers: Int, following: Int, createdAt: String, updatedAt: String) {
+    public init(id: Int, login: String, avatarURL: String?, gravatarId: String?, apiURL: String, profileURL: String, followersURL: String, followingURL: String, gistsURL: String?, starredURL: String?, subscriptionsURL: String, organizationsURL: String, reposURL: String, eventsURL: String, receivedEventsURL: String, type: String, siteAdmin: Bool, name: String?, company: String?, blog: String?, location: String?, email: String?, hireable: Bool, bio: String?, publicRepos: Int, publicGists: Int, followers: Int, following: Int, createdAt: String, updatedAt: String) {
         self.id = id
         self.login = login
         self.avatarURL = avatarURL
@@ -51,6 +52,7 @@ struct GithubUser {
         self.gistsURL = gistsURL
         self.starredURL = starredURL
         self.subscriptionsURL = subscriptionsURL
+        self.organizationsURL = organizationsURL
         self.reposURL = reposURL
         self.eventsURL = eventsURL
         self.receivedEventsURL = receivedEventsURL
