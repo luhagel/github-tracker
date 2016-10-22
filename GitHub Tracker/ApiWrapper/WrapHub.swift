@@ -22,7 +22,8 @@ class WrapHub {
             }
         })
     }
-    
+  
+  //Get shorthand user info
     static func getCompactGithubUser(userName: String, completion: @escaping (CompactGithubUser) -> Void) {
         let url = baseUrl + "/users/" + userName
         WrapHubNetworkingHelper.apiCall(url: url, callback: { (res: JSON?) in
@@ -31,7 +32,25 @@ class WrapHub {
             }
         })
     }
-    
+  
+  static func getCommit(repositoryIdentifier: String, commitSHA: String, completion: @escaping (Commit) -> Void) {
+    let url = baseUrl + "/repos/" + repositoryIdentifier + "/commits/" + commitSHA
+    WrapHubNetworkingHelper.apiCall(url: url, callback: { (res: JSON?) in
+      if let commitData = res {
+        completion(WrapHubJSONParser.parseJSONToCommit(commitJSON: commitData))
+      }
+    })
+  }
+  
+  static func getRepository(repositoryIdentifier: String, completion: @escaping (Repository) -> Void) {
+    let url = baseUrl + "/commits/" + repositoryIdentifier
+    WrapHubNetworkingHelper.apiCall(url: url, callback: { (res: JSON?) in
+      if let repoData = res {
+        completion(WrapHubJSONParser.parseJSONToRepository(repoJSON: repoData))
+      }
+    })
+  }
+  
     //Get an array of all repositories of a given user
     static func getAllPublicRepositories(for user: GithubUser) -> [Repository] {
         var repositoryArray: [Repository] = []
