@@ -1,15 +1,15 @@
 PODS:
   - Alamofire (4.0.1)
-  - SwiftyJSON (3.1.1)
+  - Marshal (1.0.0)
 
 DEPENDENCIES:
   - Alamofire
-  - SwiftyJSON
+  - Marshal
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
+  Marshal: a3c5c5dbd388112edf3cdabb718f2b4cfe48658a
 
-PODFILE CHECKSUM: d5f98b2ecf310db14da56d5e4e0ebd01bef8b2cd
+PODFILE CHECKSUM: 5f0eeee42e20ef427c2258a32f42478c3c376b8f
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.1.1

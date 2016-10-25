@@ -33,6 +33,7 @@ class WrapHub {
         })
     }
   
+  //Get Commit info
   static func getCommit(repositoryIdentifier: String, commitSHA: String, completion: @escaping (Commit) -> Void) {
     let url = baseUrl + "/repos/" + repositoryIdentifier + "/commits/" + commitSHA
     WrapHubNetworkingHelper.apiCall(url: url, callback: { (res: JSON?) in
@@ -42,6 +43,8 @@ class WrapHub {
     })
   }
   
+  
+  //Get repository info
   static func getRepository(repositoryIdentifier: String, completion: @escaping (Repository) -> Void) {
     let url = baseUrl + "/commits/" + repositoryIdentifier
     WrapHubNetworkingHelper.apiCall(url: url, callback: { (res: JSON?) in

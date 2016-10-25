@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F0890431DB07CF200EA0828 /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0890421DB07CF200EA0828 /* GithubUser.swift */; };
+		3F28A9B71DBE9DDC00E7705A /* BarChartBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28A9B61DBE9DDC00E7705A /* BarChartBarView.swift */; };
 		3F2F18811DAEFCF100CD5E34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F18801DAEFCF100CD5E34 /* AppDelegate.swift */; };
 		3F2F18831DAEFCF100CD5E34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F18821DAEFCF100CD5E34 /* ViewController.swift */; };
 		3F2F18861DAEFCF100CD5E34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F2F18841DAEFCF100CD5E34 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		1C5A2C10BC34010BD2C92609 /* Pods-GitHub TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub TrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHub TrackerTests/Pods-GitHub TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		203CEDB17A4D5C14E03BE19F /* Pods_GitHub_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0890421DB07CF200EA0828 /* GithubUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
+		3F28A9B61DBE9DDC00E7705A /* BarChartBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartBarView.swift; sourceTree = "<group>"; };
 		3F2F187D1DAEFCF100CD5E34 /* GitHub Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2F18801DAEFCF100CD5E34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F2F18821DAEFCF100CD5E34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		3F28A9B51DBE9DB100E7705A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F28A9B61DBE9DDC00E7705A /* BarChartBarView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		3F2F18741DAEFCF000CD5E34 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +145,7 @@
 		3F2F187F1DAEFCF100CD5E34 /* GitHub Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				3F28A9B51DBE9DB100E7705A /* Views */,
 				3F85BF011DAF35A3000694A9 /* ApiWrapper */,
 				3FB23F681DB331270084AC17 /* Helper Files */,
 				3F2F18871DAEFCF100CD5E34 /* Assets.xcassets */,
@@ -411,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E295E4791DB19ABE00F16C80 /* String+Extensions.swift in Sources */,
+				3F28A9B71DBE9DDC00E7705A /* BarChartBarView.swift in Sources */,
 				3F0890431DB07CF200EA0828 /* GithubUser.swift in Sources */,
 				3FB23F6C1DB332360084AC17 /* WrapHubNetworkingHelper.swift in Sources */,
 				3FA6DFF11DB1E01A003F2685 /* Commit.swift in Sources */,
