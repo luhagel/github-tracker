@@ -7,7 +7,7 @@ target 'GitHub Tracker' do
 
   # Pods for GitHub Tracker
 
-  pod 'Marshal'
+  pod 'SwiftyJSON'
   pod 'Alamofire'
 
   target 'GitHub TrackerTests' do

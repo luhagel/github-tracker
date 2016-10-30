@@ -10,7 +10,6 @@
 		3F0890431DB07CF200EA0828 /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0890421DB07CF200EA0828 /* GithubUser.swift */; };
 		3F28A9B71DBE9DDC00E7705A /* BarChartBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F28A9B61DBE9DDC00E7705A /* BarChartBarView.swift */; };
 		3F2F18811DAEFCF100CD5E34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F18801DAEFCF100CD5E34 /* AppDelegate.swift */; };
-		3F2F18831DAEFCF100CD5E34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2F18821DAEFCF100CD5E34 /* ViewController.swift */; };
 		3F2F18861DAEFCF100CD5E34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F2F18841DAEFCF100CD5E34 /* Main.storyboard */; };
 		3F2F18881DAEFCF100CD5E34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F2F18871DAEFCF100CD5E34 /* Assets.xcassets */; };
 		3F2F188B1DAEFCF100CD5E34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F2F18891DAEFCF100CD5E34 /* LaunchScreen.storyboard */; };
@@ -21,6 +20,8 @@
 		3FB23F6A1DB331650084AC17 /* WrapHubParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23F691DB331650084AC17 /* WrapHubParser.swift */; };
 		3FB23F6C1DB332360084AC17 /* WrapHubNetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB23F6B1DB332360084AC17 /* WrapHubNetworkingHelper.swift */; };
 		3FC643A41DB18E1200A01552 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC643A31DB18E1200A01552 /* Repository.swift */; };
+		3FF903371DC443EB00476AC8 /* ChartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF903361DC443EB00476AC8 /* ChartTableViewController.swift */; };
+		3FF903391DC4481B00476AC8 /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF903381DC4481B00476AC8 /* BarChartTableViewCell.swift */; };
 		3FFD8C221DB46F9300766319 /* JSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFD8C1C1DB43F6300766319 /* JSONParserTests.swift */; };
 		3FFD8C231DB46F9800766319 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FFD8C1F1DB4414200766319 /* test.json */; };
 		4B8680914DC2383B0841912C /* Pods_GitHub_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F5DD68A2CE4F9E5B3EEE79 /* Pods_GitHub_Tracker.framework */; };
@@ -46,7 +47,6 @@
 		3F28A9B61DBE9DDC00E7705A /* BarChartBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartBarView.swift; sourceTree = "<group>"; };
 		3F2F187D1DAEFCF100CD5E34 /* GitHub Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2F18801DAEFCF100CD5E34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F2F18821DAEFCF100CD5E34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3F2F18851DAEFCF100CD5E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F2F18871DAEFCF100CD5E34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F2F188A1DAEFCF100CD5E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +60,8 @@
 		3FB23F691DB331650084AC17 /* WrapHubParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapHubParser.swift; sourceTree = "<group>"; };
 		3FB23F6B1DB332360084AC17 /* WrapHubNetworkingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapHubNetworkingHelper.swift; sourceTree = "<group>"; };
 		3FC643A31DB18E1200A01552 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		3FF903361DC443EB00476AC8 /* ChartTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTableViewController.swift; sourceTree = "<group>"; };
+		3FF903381DC4481B00476AC8 /* BarChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartTableViewCell.swift; sourceTree = "<group>"; };
 		3FFD8C1C1DB43F6300766319 /* JSONParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
 		3FFD8C1F1DB4414200766319 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		42F5DD68A2CE4F9E5B3EEE79 /* Pods_GitHub_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +153,8 @@
 				3F2F18871DAEFCF100CD5E34 /* Assets.xcassets */,
 				3F2F18891DAEFCF100CD5E34 /* LaunchScreen.storyboard */,
 				3F2F18841DAEFCF100CD5E34 /* Main.storyboard */,
-				3F2F18821DAEFCF100CD5E34 /* ViewController.swift */,
+				3FF903361DC443EB00476AC8 /* ChartTableViewController.swift */,
+				3FF903381DC4481B00476AC8 /* BarChartTableViewCell.swift */,
 			);
 			path = "GitHub Tracker";
 			sourceTree = "<group>";
@@ -423,13 +426,14 @@
 			files = (
 				E295E4791DB19ABE00F16C80 /* String+Extensions.swift in Sources */,
 				3F28A9B71DBE9DDC00E7705A /* BarChartBarView.swift in Sources */,
+				3FF903371DC443EB00476AC8 /* ChartTableViewController.swift in Sources */,
 				3F0890431DB07CF200EA0828 /* GithubUser.swift in Sources */,
 				3FB23F6C1DB332360084AC17 /* WrapHubNetworkingHelper.swift in Sources */,
+				3FF903391DC4481B00476AC8 /* BarChartTableViewCell.swift in Sources */,
 				3FA6DFF11DB1E01A003F2685 /* Commit.swift in Sources */,
 				3F85BF031DAF35CD000694A9 /* WrapHub.swift in Sources */,
 				3FB23F6A1DB331650084AC17 /* WrapHubParser.swift in Sources */,
 				3FC643A41DB18E1200A01552 /* Repository.swift in Sources */,
-				3F2F18831DAEFCF100CD5E34 /* ViewController.swift in Sources */,
 				3F2F18811DAEFCF100CD5E34 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
