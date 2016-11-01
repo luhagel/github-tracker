@@ -12,7 +12,6 @@ import SwiftyJSON
 class WrapHub {
     private static let baseUrl: String = "https://api.github.com"
     
-    
     //Get User Info
     static func getGithubUser(userName: String, completion: @escaping (GithubUser) -> Void) {
         let url = baseUrl + "/users/" + userName
