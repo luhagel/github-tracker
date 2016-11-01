@@ -43,6 +43,20 @@ class WrapHub {
     })
   }
   
+  static func getAllCommits(repositoryIdentifier: String, completion: @escaping ([Commit]) -> Void) {
+    let url = baseUrl + "/repos/" + repositoryIdentifier + "/commits/"
+    WrapHubNetworkingHelper.apiCall(url: url, callback: { (res: JSON?) in
+      if let commitData = res {
+        let rawCommitsArray: [JSON] = commitData.arrayValue
+        var commitsArray: [Commit] = []
+        for commit in rawCommitsArray {
+          commitsArray += [WrapHubJSONParser.parseJSONToCommit(commitJSON: commit)]
+        }
+        completion(commitsArray)
+      }
+    })
+  }
+  
   
   //Get repository info
   static func getRepository(repositoryIdentifier: String, completion: @escaping (Repository) -> Void) {
