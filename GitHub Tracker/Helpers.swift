@@ -29,7 +29,7 @@ fileprivate func calcCurrentCommitStreak(for user: GithubUser) -> Int {
   return currentStreak
 }
 
-fileprivate func getAllCommitDates(repoList: [Repository]) -> [String] {
+func getAllCommitDates(repoList: [Repository]) -> [String] {
   var dates: [String] = []
   for repo in repoList {
     WrapHub.getAllCommits(repositoryIdentifier: repo.name, completion: { (commits) in

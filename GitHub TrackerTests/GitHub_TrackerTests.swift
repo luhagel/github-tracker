@@ -24,4 +24,12 @@ class GitHub_TrackerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+  
+  func testGetAllCommitDates() {
+    WrapHub.getGithubUser(userName: "luhagel", completion: { user in
+      let repoList = WrapHub.getAllPublicRepositories(for: user)
+      let commitDates = getAllCommitDates(repoList: repoList)
+      assert(commitDates.count > 0)
+    })
+  }
 }

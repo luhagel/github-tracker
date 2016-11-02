@@ -42,7 +42,14 @@ class ChartTableViewController: UITableViewController {
         self.tableView.backgroundView = backgroundView
         self.tableView.backgroundView?.contentMode = .scaleAspectFill
       
-        //self.tableView.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        var commitDates: [String] = []
+        WrapHub.getGithubUser(userName: "luhagel", completion: { user in
+          print(user)
+          let repoList = WrapHub.getAllPublicRepositories(for: user)
+          print(repoList)
+          commitDates = getAllCommitDates(repoList: repoList)
+          print(commitDates)
+        })
     }
 
     override func didReceiveMemoryWarning() {
