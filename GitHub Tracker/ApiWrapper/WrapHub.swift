@@ -68,17 +68,19 @@ class WrapHub {
   }
   
     //Get an array of all repositories of a given user
-    static func getAllPublicRepositories(for user: GithubUser) -> [Repository] {
-        var repositoryArray: [Repository] = []
+  static func getAllPublicRepositories(for user: GithubUser, completion: @escaping ([Repository]) -> Void) {
+      var repositoryArray: [Repository] = []
       self.getAllPublicRepoURLs(user: user) { repoURLs in
         for repoURL in repoURLs {
-          print(repoURL)
           WrapHubNetworkingHelper.apiCall(url: repoURL, callback: { repoJSON in
             repositoryArray += [WrapHubJSONParser.parseJSONToRepository(repoJSON: repoJSON!)]
+            if repositoryArray.count == repoURLs.count {
+              dump(repositoryArray)
+              completion(repositoryArray)
+            }
           })
         }
       }
-      return repositoryArray
     }
 
     
@@ -88,7 +90,7 @@ class WrapHub {
         WrapHubNetworkingHelper.apiCall(url: user.reposURL, callback: { reposJSON in
             if let reposArray = reposJSON?.arrayValue {
                 for repo in reposArray {
-                    var mutableRepoURL: String = repo["url"].string!
+                    let mutableRepoURL: String = repo["url"].string!
                     //mutableRepoURL.removeLastCharacters(numberOfCharacters: 4)
                     repoArrary.append(mutableRepoURL)
                 }

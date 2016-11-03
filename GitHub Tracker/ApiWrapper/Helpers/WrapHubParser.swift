@@ -65,16 +65,12 @@ class WrapHubJSONParser {
     }
     
     static func parseJSONToRepository(repoJSON: JSON) -> Repository {
-        var repoOwner: CompactGithubUser?
-        
-        WrapHub.getCompactGithubUser(userName: repoJSON["owner"]["login"].stringValue, completion: { user in
-            repoOwner = user
-        })
-        
+        let repoOwner: CompactGithubUser = parseJSONToCompactGithubUser(userJSON: repoJSON["owner"])
+      
         let repository: Repository = Repository(id: repoJSON["id"].intValue,
                                                 name: repoJSON["name"].stringValue,
                                                 full_name: repoJSON["full_name"].stringValue,
-                                                owner: repoOwner!,
+                                                owner: repoOwner,
                                                 isPrivate: repoJSON["is_private"].boolValue,
                                                 htmlURL: repoJSON["html_url"].stringValue,
                                                 description: repoJSON["description"].stringValue,
