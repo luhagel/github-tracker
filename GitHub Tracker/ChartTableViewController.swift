@@ -46,7 +46,6 @@ class ChartTableViewController: UITableViewController {
         WrapHub.getGithubUser(userName: "luhagel", completion: { user in
           //print(user)
           WrapHub.getAllPublicRepositories(for: user) { repoList in
-            print(repoList)
             commitDates = getAllCommitDates(repoList: repoList)
             print(commitDates)
           }
