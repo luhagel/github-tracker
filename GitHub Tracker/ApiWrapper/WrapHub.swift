@@ -44,7 +44,6 @@ class WrapHub {
   
   static func getAllCommits(repositoryIdentifier: String, completion: @escaping ([Commit]) -> Void) {
     let url = baseUrl + "/repos/" + repositoryIdentifier + "/commits"
-    print(url)
     WrapHubNetworkingHelper.apiCall(url: url, callback: { (res: JSON?) in
       if let commitData = res {
         let rawCommitsArray: [JSON] = commitData.arrayValue
@@ -76,7 +75,6 @@ class WrapHub {
           WrapHubNetworkingHelper.apiCall(url: repoURL, callback: { repoJSON in
             repositoryArray += [WrapHubJSONParser.parseJSONToRepository(repoJSON: repoJSON!)]
             if repositoryArray.count == repoURLs.count {
-              //dump(repositoryArray)
               completion(repositoryArray)
             }
           })
@@ -92,7 +90,6 @@ class WrapHub {
             if let reposArray = reposJSON?.arrayValue {
                 for repo in reposArray {
                     let mutableRepoURL: String = repo["url"].string!
-                    //mutableRepoURL.removeLastCharacters(numberOfCharacters: 4)
                     repoArrary.append(mutableRepoURL)
                 }
               completion(repoArrary)

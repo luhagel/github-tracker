@@ -41,13 +41,12 @@ class ChartTableViewController: UITableViewController {
         let backgroundView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = backgroundView
         self.tableView.backgroundView?.contentMode = .scaleAspectFill
-      
-        var commitDates: [String] = []
+
         WrapHub.getGithubUser(userName: "luhagel", completion: { user in
-          //print(user)
           WrapHub.getAllPublicRepositories(for: user) { repoList in
-            commitDates = getAllCommitDates(repoList: repoList)
-            print(commitDates)
+            getAllCommitDates(repoList: repoList) { commitDates in
+              print(commitDates)
+            }
           }
         })
     }
