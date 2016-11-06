@@ -50,8 +50,11 @@ class WrapHub {
         var commitsArray: [Commit] = []
         for commit in rawCommitsArray {
           commitsArray += [WrapHubJSONParser.parseJSONToCommit(commitJSON: commit)]
+          
+          if commitsArray.count == rawCommitsArray.count {
+            completion(commitsArray)
+          }
         }
-        completion(commitsArray)
       }
     })
   }
