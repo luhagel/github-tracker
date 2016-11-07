@@ -34,10 +34,12 @@ func getAllCommitDates(repoList: [Repository], completion: @escaping ([String]) 
   var neededLength = 0
   for repo in repoList {
     WrapHub.getAllCommits(repositoryIdentifier: repo.owner.login + "/" + repo.name, completion: { (commits) in
-      neededLength += 1
       for commit in commits {
+        neededLength += 1
         dates += [commit.commit.author.date]
       }
+      neededLength += 1
+      print("\(neededLength) - \(repoList.count)")
     })
     
     if neededLength == repoList.count {
