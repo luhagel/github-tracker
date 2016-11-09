@@ -44,7 +44,7 @@ class ChartTableViewController: UITableViewController {
 
         WrapHub.getGithubUser(userName: "luhagel", completion: { user in
           WrapHub.getAllPublicRepositories(for: user) { repoList in
-            getAllCommitDates(repoList: repoList) { commitDates in
+            self.getAllCommitDates(repoList: repoList) { commitDates in
               print(commitDates)
             }
           }
@@ -90,5 +90,20 @@ class ChartTableViewController: UITableViewController {
 
         return cell
     }
-
+  
+    func getAllCommitDates(repoList: [Repository], completion: @escaping ([String]) -> Void) {
+      for repo in repoList {
+        WrapHub.getAllCommits(repositoryIdentifier: repo.owner.login + "/" + repo.name, completion: { (commits) in
+          var dates: [String] = []
+          for commit in commits {
+            dates += [commit.commit.author.date]
+          }
+          completion(dates)
+        })
+      }
+    }
+  
+  func populateUserData() {
+    
+  }
 }
