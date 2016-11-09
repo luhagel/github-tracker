@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftDate
 
 struct ChartData {
   let userName: String
@@ -34,6 +35,8 @@ class ChartTableViewController: UITableViewController {
         ChartData(userName: "davidkc0", currentStreak: 4, longestStreak: 21),
         ChartData(userName: "jakezeal", currentStreak: 2, longestStreak: 21)
     ]
+  
+    var testDates: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +48,9 @@ class ChartTableViewController: UITableViewController {
         WrapHub.getGithubUser(userName: "luhagel", completion: { user in
           WrapHub.getAllPublicRepositories(for: user) { repoList in
             self.getAllCommitDates(repoList: repoList) { commitDates in
-              print(commitDates)
+              self.testDates += commitDates
+              
+              print(self.calcCurrentStreak(rawDates: self.testDates))
             }
           }
         })
@@ -91,19 +96,41 @@ class ChartTableViewController: UITableViewController {
         return cell
     }
   
-    func getAllCommitDates(repoList: [Repository], completion: @escaping ([String]) -> Void) {
+    func getAllCommitDates(repoList: [Repository], completion: @escaping (Set<String>) -> Void) {
       for repo in repoList {
         WrapHub.getAllCommits(repositoryIdentifier: repo.owner.login + "/" + repo.name, completion: { (commits) in
-          var dates: [String] = []
+          var dates: Set<String> = []
           for commit in commits {
-            dates += [commit.commit.author.date]
+            let commitDate: String = self.removeLastCharacters(string: commit.commit.author.date, numberOfCharacters: 10)
+            dates.insert(commitDate)
           }
           completion(dates)
         })
       }
     }
   
-  func populateUserData() {
+  func populateUserData(dates: [String], user: String) {
     
+  }
+  
+  func calcCurrentStreak(rawDates: [String]) -> [DateInRegion] {
+    var dates: [DateInRegion] = []
+    let sf = Region(tz: TimeZoneName.americaLosAngeles, cal: .gregorian, loc: LocaleName.english)
+    for date in rawDates {
+      let newDate: DateInRegion = try! DateInRegion(string: date, format: .custom("yyyy-MM-dd"), fromRegion: sf)
+      dates += [newDate]
+    }
+    dates = dates.sorted()
+    
+    return dates
+  }
+  
+  func removeLastCharacters( string: String, numberOfCharacters: Int) -> String {
+    var string = string
+    let startIndex = string.index(string.startIndex, offsetBy: string.characters.count-numberOfCharacters)
+    let endIndex = string.index(string.startIndex, offsetBy: string.characters.count-1)
+    let range = startIndex...endIndex
+    string.removeSubrange(range)
+    return string
   }
 }

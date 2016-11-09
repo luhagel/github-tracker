@@ -9,6 +9,7 @@ target 'GitHub Tracker' do
 
   pod 'SwiftyJSON'
   pod 'Alamofire'
+  pod 'SwiftDate'
 
   target 'GitHub TrackerTests' do
     inherit! :search_paths
